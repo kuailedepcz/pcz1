@@ -1,0 +1,130 @@
+/* pages/home/home.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.algin_center{
+  display: flex;
+  align-items: center;/* 垂直居中 */
+  justify-content: center;/* 水平居中 */
+}
+#title{
+  font-size: 45rpx;
+  text-align: center;
+  width: 100vw;
+  flex: 1;
+}
+#time-box{
+  width: 100vw;
+  /* height: 80vh; */
+  flex: 9;
+}
+#bottom{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  border-top: 1rpx solid cadetblue;
+}
+button{
+  margin: 0;
+  padding: 0;
+}
+.btn{
+  padding: 0;
+  box-sizing: border-box;
+  border-right: 1rpx solid cadetblue;
+  height: 100%;
+  border-radius: 0;
+  font-size: 35rpx;
+  font-weight: 500;
+  flex: 1;
+}
+/* .btn:first-child{
+  width: 500rpx;
+} */
+.btn:last-child{
+  border: none;
+}
+
+#myform{
+  width: 100%;
+  height: 100%;
+  font-size: 40rpx;
+  box-sizing: border-box;
+}
+
+picker{
+  box-sizing: border-box;
+  padding: 50rpx;
+  padding-left: 40rpx;
+}
+
+.item{
+  padding: 25rpx;
+}
+.item input{
+  border-bottom:1rpx solid cadetblue ;
+  padding:15rpx;
+  padding-left: 20rpx;
+}
+
+.dialog{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  flex-direction: column;
+  z-index: 10;
+}
+.dialog #box{
+  width: 87vw;
+  height: 90vh;
+  background-color: seashell;
+  border-radius: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 45rpx;
+}
+.dialog #top{
+  margin-bottom: 25rpx;
+  font-size: 45rpx;
+}
+.dialog #content{
+  font-size: 35rpx;
+  margin-bottom:35rpx;
+}
+.dialog #box button{
+  padding: 20rpx 0;
+  font-size: 40rpx;
+  color: white;
+  background-color: cadetblue;
+}
+
+#addTime{
+  margin: 0;
+  padding: 0;
+  width: 100rpx;
+  height: 70rpx;
+  border-radius: 20rpx;
+  background-color: #bbb;
+  font-size: 40rpx;
+  display: inline-block;
+}
+#time,#date{
+  padding: 0;
+  margin: 0;
+}
+#time{
+  background-color: darkgray;
+  border-radius: 20rpx;
+  width: 90rpx;
+  height: 60rpx;
+}
+.time_item{
+  display: flex;
+}

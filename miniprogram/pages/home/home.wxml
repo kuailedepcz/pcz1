@@ -1,0 +1,55 @@
+<!--pages/home/home.wxml-->
+<view id="title" class="algin_center">场馆预约</view>
+<view id="time-box">
+  <form id="myform">
+    <view class="item">
+      <label for="name">预约人（校内）</label>
+      <input type="text" id="name" placeholder="单位+姓名"/>
+      <view style="margin-bottom:10rpx;">（示例：校办：高建伟）</view>
+      <input type="number" maxlength="11" id="phone" placeholder="联系方式"/>
+    </view>
+    <view class="item">
+      <label for="visitor">来访人</label>
+      <input type="text" id="visitor" placeholder="来访人信息"/>
+      <view>（示例：××大学校长）</view>
+    </view>
+    <!-- 有个功能可以实现只填写小于等于5的数字 -->
+    <view class="item algin_center" style="display: flex;">
+      <label for="sum" style="flex: 2;padding-right: 0;">预约人数({{"<="}}30)：</label>
+      <input type="number" id="sum" style="flex: 2;padding-bottom: 0;"/>
+    </view>
+    <view class="item time_item" >
+    <label for="date">参观日期：</label>
+      <picker id="date" mode="date" value="{{date}}" start="{{date}}" end="2023-7-16">{{date}}</picker>
+    </view>
+    
+    <view class="item time_item">
+      <label for="time">参观时间：</label>
+      <picker id="time" range="{{array}}" class="algin_center">+</picker>
+    </view>
+ 
+  </form>
+  
+  
+</view>
+
+<view id="bottom">
+  <button  class="btn algin_center" bindtap="tabShow">预约须知<icon type="info" color="orange" size="20"/></button>
+  <button  class="btn algin_center">立即预约</button>
+  <button class="btn algin_center" bindtap="goToRecord">预约记录</button>
+</view>
+
+
+<root-portal wx:if="{{ show }}">
+    <view class="dialog algin_center">
+      <scroll-view id="box" scroll-y="true">
+        <view id="top">预约须知</view>
+          <view id="content">
+            {{acknowledge}}
+          </view>
+          <button bindtap="tabClose">
+          已阅读
+          </button>
+      </scroll-view>
+    </view>
+  </root-portal>
