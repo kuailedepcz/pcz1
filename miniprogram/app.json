@@ -2,16 +2,30 @@
   "pages": [
     "pages/home/home",
     "pages/record/record",
-    "pages/reserve/reserve",
+    "pages/code/code",
     "pages/acknowledge/acknowledge"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#abc",
+    "navigationBarBackgroundColor": "#b88b50",
     "navigationBarTitleText": "非洲博物馆预约",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-overlay": "@vant/weapp/overlay/index"
+
+  }
 }

@@ -1,2 +1,19 @@
 <!--pages/record/record.wxml-->
+<!-- <view id="tit">预约记录</view> -->
+  <view wx:for="{{record}}" wx:key="index" wx:for-item="record">
+  <view class="box">
+    <view>
+      <view class="marginBottom"><van-icon name="calendar-o" size="40rpx" /><text>参观日期：<text class="content">{{record.date}}</text></text></view>
+    <view class="marginBottom"><van-icon name="clock-o" /><text>参观时间：<text class="content">{{record.time}}</text></text></view>
+    <view class="marginBottom"><van-icon name="contact" /><text>预约人：<text class="content">{{record.name}}</text></text></view>
+    <van-divider dashed />
+    <view>
+      <button class="btn" style="width: 150rpx;">取消预约</button>
+      <button class="btn" style="width: 150rpx;" bindtap="showCode">二维码</button>
+    </view>
+    </view>
+    
+  </view>
+    
+  </view>
 

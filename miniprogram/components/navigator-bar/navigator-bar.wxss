@@ -1,0 +1,11 @@
+/* components/navigator-bar/navigator-bar.wxss */
+page{
+  padding: 0;
+  margin: 0;
+}
+#tit{
+  font-size: 45rpx;
+  text-align: center;
+  width: 100vw;
+  margin: 20rpx auto;
+}

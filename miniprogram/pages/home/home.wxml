@@ -1,54 +1,85 @@
 <!--pages/home/home.wxml-->
-<view id="title" class="algin_center">场馆预约</view>
-<view id="time-box">
-  <form id="myform">
-    <view class="item">
-      <label for="name">预约人（校内）</label>
-      <input type="text" id="name" placeholder="单位+姓名"/>
-      <view style="margin-bottom:10rpx;">（示例：校办：高建伟）</view>
-      <input type="number" maxlength="11" id="phone" placeholder="联系方式"/>
-    </view>
-    <view class="item">
-      <label for="visitor">来访人</label>
-      <input type="text" id="visitor" placeholder="来访人信息"/>
-      <view>（示例：××大学校长）</view>
-    </view>
-    <!-- 有个功能可以实现只填写小于等于5的数字 -->
-    <view class="item algin_center" style="display: flex;">
-      <label for="sum" style="flex: 2;padding-right: 0;">预约人数({{"<="}}30)：</label>
-      <input type="number" id="sum" style="flex: 2;padding-bottom: 0;"/>
-    </view>
-    <view class="item time_item" >
-    <label for="date">参观日期：</label>
-      <picker id="date" mode="date" value="{{date}}" start="{{date}}" end="2023-7-16">{{date}}</picker>
-    </view>
-    
-    <view class="item time_item">
-      <label for="time">参观时间：</label>
-      <picker id="time" range="{{array}}" class="algin_center">+</picker>
-    </view>
- 
-  </form>
-  
-  
+<!-- <view id="title" class="algin_center"></view> -->
+<!-- <title name="场馆预约"></title> -->
+<scroll-view scroll-y="true" style="width: 100vw;height: 93vh;box-sizing: border-box;padding-bottom:40rpx ;">
+<image src="/images/home_image.jpg" class="van-image">
+  <view id="shadow">
+  <view id="tit"><van-icon name="home-o" size="40rpx" /><text style="margin:20rpx">非洲博物馆</text></view>
+  <view class="time"><van-icon name="clock-o" size="40rpx"/><text style="margin:20rpx">每日8：00-17：00</text></view>
 </view>
+</image>
+
+<van-cell-group inset custom-class="van-group_margin">
+  <van-cell label="" title="预约人（校内）"  border="{{ false }}" size="large" label="示例：校办 ×××" required="true" custom-class="cellroot" title-class="font-weight" label-class="label-weight" > 
+    
+  </van-cell>
+  <van-field
+    model:value="{{  }}"
+    placeholder="单位和姓名"
+    border="{{ true }}"
+    size="large"
+    bind:blur="onChange1"
+  />
+  <van-field
+    model:value="{{  }}"
+    placeholder="联系方式"
+    border="{{ true }}"
+    size="large"
+    type="number"
+    bind:blur="onChange2"
+  />
+  <van-cell label="" title="来访人"  border="{{ false }}" size="large" label="示例：×××大学校长一行" required="true" custom-class="cellroot" title-class="font-weight" label-class="label-weight"/>
+  <van-field
+    model:value="{{  }}"
+    placeholder="来访人信息"
+    border="{{ true }}"
+    size="large"
+    bind:blur="onChange3"
+  />
+  <van-cell title="预约人数（<=30）" size="large" value-class="visitor_num" border="{{ false }}" title-class="font-weight" label-class="label-weight" required="true">
+    <van-field border="{{ true }}" class="visitor_input"  type="number"bind:blur="onChange4"/>
+  </van-cell>
+  
+  <!-- <view class="item time_item" >
+    <label for="date">参观日期：</label>
+      <picker id="date" mode="date" value="{{date}}" start="{{now_date}}" end="{{endDate}}"bind:change="onChange5">{{date}}</picker>
+    </view> -->
+
+  <van-cell title="参观日期" value="{{ date }}" bind:click="onDisplay" size="large" title-class="font-weight" required="true" border="{{ false }}"/>
+  <van-calendar  show="{{ calendar }}" bind:close="onClose" bind:confirm="onChange5" color="#b88b50" min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"  />
+
+  <van-cell title="参观时间" value="{{}}" bind:click="" size="large" value-class="visitor_time" title-class="font-weight" label-class="label-weight" required="true" border="{{ false }}">
+    <view class="showtime">
+      <van-cell wx:for="{{selected}}" style="display: flex;"  custom-class="show-box" value-class="show-value" border="{{ false }}">
+        <text>{{item}}</text><van-button size="mini" bind:click="concelTime" data-item="{{item}}" custom-class="btn_size">×</van-button>
+      </van-cell>
+      <picker id="time" range="{{array}}"  class="algin_center" bindchange="selectTime" >+</picker>
+    </view>
+  </van-cell>
+</van-cell-group>
+
+</scroll-view>
 
 <view id="bottom">
-  <button  class="btn algin_center" bindtap="tabShow">预约须知<icon type="info" color="orange" size="20"/></button>
-  <button  class="btn algin_center">立即预约</button>
-  <button class="btn algin_center" bindtap="goToRecord">预约记录</button>
+  <button class="btn algin_center" bindtap="tabShow">预约须知<icon type="info" color="#b3a78f" size="15" style="margin-left: 10rpx;"/></button>
+  <button  class="btn algin_center" bindtap="onClick1">立即预约</button>
+  <navigator url="/pages/record/record" class="btn algin_center" >预约记录</navigator>
 </view>
+
+
 
 
 <root-portal wx:if="{{ show }}">
     <view class="dialog algin_center">
       <scroll-view id="box" scroll-y="true">
-        <view id="top">预约须知</view>
-          <view id="content">
-            {{acknowledge}}
-          </view>
-          <button bindtap="tabClose">
-          已阅读
+      <view style="margin-bottom: 25rpx;">欢迎参观浙江师范大学非洲博物馆、中非交流博物馆</view>
+        <view id="top">参观须知</view>
+          <block wx:for="{{acknowledge}}">
+            <view style="text-align: left;line-height: 2rem;">{{item}}</view>
+          </block>
+          <button bindtap="tabClose" style="margin-top: 40rpx;">
+          我已阅读
           </button>
       </scroll-view>
     </view>

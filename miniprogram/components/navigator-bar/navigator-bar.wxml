@@ -1,0 +1,4 @@
+<!--components/navigator-bar/navigator-bar.wxml-->
+<view style="font-size: 45rpx;text-align: center;width: 100vw;margin: 20rpx auto;">
+  {{name}}
+</view>

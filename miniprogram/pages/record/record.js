@@ -5,11 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    record:{
-      // date:
-    }
+    record:[
+      {
+        date:"2023.7.6",
+        time:"12:30-13:00",
+        name:"高建伟"
+      },
+      {
+        date:"2023.7.6",
+        time:"12:30-13:00",
+        name:"高建伟"
+      }
+    ]
   },
-
+  showCode(){
+    wx.navigateTo({
+      url: '/pages/code/code',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

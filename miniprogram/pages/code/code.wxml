@@ -1,0 +1,5 @@
+<!--pages/code/code.wxml-->
+<view class="con">
+  <image src="/images/code.jpg" mode="aspectFill"/>
+  <view id="code">二维码</view>
+</view>

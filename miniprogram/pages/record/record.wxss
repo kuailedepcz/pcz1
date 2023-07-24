@@ -1,1 +1,55 @@
 /* pages/record/record.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  background-color: #decdaf;
+}
+.box{
+  border-radius: 20rpx;
+  border-top-right-radius: 60rpx;
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 40rpx;
+  /* background-color: #f7f7f5; */
+  background-image: url("/images/record_img.jpeg");
+  background-position: cover;
+}
+.box text{
+  margin-left: 10rpx;
+}
+.box text .content{
+  margin: 0;
+  color: #b0b0bc;
+}
+.box .btn{
+  margin: 0;
+  padding: 10rpx;
+  font-size: 25rpx;
+  font-weight: normal;
+  border-radius: 30rpx;
+  background-color: cadetblue;
+  margin-right: 20rpx;
+}
+.marginBottom{
+  margin-bottom: 20rpx;
+}
+#tit{
+  font-size: 35rpx;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding:15rpx;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+}

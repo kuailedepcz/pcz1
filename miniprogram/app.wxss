@@ -5,7 +5,9 @@
   align-items: center;
   box-sizing: border-box;
 } 
-
+.no-border{
+  border: none;
+}
 button {
   background: initial;
 }
